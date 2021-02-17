@@ -6,5 +6,5 @@ import java.time.ZonedDateTime;
 import java.util.List;
 
 public interface MovieOnboardingService {
-    void onboardMovie(String title, Integer releaseYear);
+    void onboardMovie(String title, Integer releaseYear, MovieGenre movieGenre);
 }

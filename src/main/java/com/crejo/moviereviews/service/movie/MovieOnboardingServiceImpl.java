@@ -20,10 +20,11 @@ public class MovieOnboardingServiceImpl implements MovieOnboardingService {
     }
 
     @Override
-    public void onboardMovie(String title, Integer releaseYear) {
+    public void onboardMovie(String title, Integer releaseYear, MovieGenre movieGenre) {
         Movie movie = new Movie.MovieBuilder()
                 .withTitle(title)
                 .withReleaseDate(releaseYear)
+                .withGenre(movieGenre)
                 .build();
 
         movieRepository.addMovies(Collections.singletonList(movie));
