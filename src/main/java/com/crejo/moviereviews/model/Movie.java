@@ -3,6 +3,8 @@ package com.crejo.moviereviews.model;
 import com.crejo.moviereviews.service.movie.MovieGenre;
 
 import java.time.ZonedDateTime;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Movie {
@@ -22,15 +24,19 @@ public class Movie {
         private String title;
         private Integer releaseYear;
         private List<MovieGenre> movieGenres;
-
         private List<Review> reviews;
+
+        public MovieBuilder() {
+            this.movieGenres = new ArrayList<>();
+            this.reviews = new ArrayList<>();
+        }
 
         public MovieBuilder withTitle(String title) {
             this.title = title;
             return this;
         }
 
-        public MovieBuilder withReleaseDate(Integer releaseDate) {
+        public MovieBuilder withReleaseDate(Integer releaseYear) {
             this.releaseYear = releaseYear;
             return this;
         }
@@ -42,6 +48,11 @@ public class Movie {
 
         public MovieBuilder withGenre(MovieGenre movieGenre) {
             this.movieGenres.add(movieGenre);
+            return this;
+        }
+
+        public MovieBuilder withGenreList(List<MovieGenre> movieGenres) {
+            this.movieGenres.addAll(movieGenres);
             return this;
         }
 

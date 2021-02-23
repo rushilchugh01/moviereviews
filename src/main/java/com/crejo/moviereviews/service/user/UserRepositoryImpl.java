@@ -3,6 +3,7 @@ package com.crejo.moviereviews.service.user;
 import com.crejo.moviereviews.model.User;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -10,6 +11,10 @@ import java.util.Optional;
 public class UserRepositoryImpl implements UserRepository {
 
     private List<User> userList;
+
+    public UserRepositoryImpl() {
+        this.userList = new ArrayList<>();
+    }
 
     @Override
     public void addUsers(List<User> users) {
@@ -19,6 +24,11 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public void removeUsers(List<User> users) {
         userList.removeAll(users);
+    }
+
+    @Override
+    public List<User> listUsers() {
+        return userList;
     }
 
     @Override

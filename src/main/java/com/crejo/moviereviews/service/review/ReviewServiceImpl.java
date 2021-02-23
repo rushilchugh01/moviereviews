@@ -31,7 +31,7 @@ public class ReviewServiceImpl implements ReviewService {
 
 
     @Override
-    public void addReview(String movieTitle, String userName, Integer movieScore) {
+    public void addReview(String userName, String movieTitle, Integer movieScore) {
         userRepository.findUser(userName)
                 .ifPresentOrElse(user -> {
                     movieRepository.findMovie(movieTitle)

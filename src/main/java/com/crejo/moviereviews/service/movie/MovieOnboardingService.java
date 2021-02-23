@@ -7,4 +7,6 @@ import java.util.List;
 
 public interface MovieOnboardingService {
     void onboardMovie(String title, Integer releaseYear, MovieGenre movieGenre);
+    void onboardMovie(String title, Integer releaseYear, List<MovieGenre> movieGenres);
+
 }

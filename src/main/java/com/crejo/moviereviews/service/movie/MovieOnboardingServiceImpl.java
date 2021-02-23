@@ -1,11 +1,9 @@
 package com.crejo.moviereviews.service.movie;
 
 import com.crejo.moviereviews.model.Movie;
-import com.crejo.moviereviews.model.Review;
 import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
-import java.time.ZonedDateTime;
 import java.util.Collections;
 import java.util.List;
 
@@ -28,6 +26,16 @@ public class MovieOnboardingServiceImpl implements MovieOnboardingService {
                 .build();
 
         movieRepository.addMovies(Collections.singletonList(movie));
+    }
 
+    @Override
+    public void onboardMovie(String title, Integer releaseYear, List<MovieGenre> movieGenres){
+        Movie movie = new Movie.MovieBuilder()
+                .withTitle(title)
+                .withReleaseDate(releaseYear)
+                .withGenreList(movieGenres)
+                .build();
+
+        movieRepository.addMovies(Collections.singletonList(movie));
     }
 }

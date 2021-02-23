@@ -3,14 +3,21 @@ package com.crejo.moviereviews.service.movie;
 import com.crejo.moviereviews.model.Movie;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Component
 public class MovieRepositoryImpl implements MovieRepository {
 
     private List<Movie> movieList;
-    private Logger logger = LoggerFactory.getLogger(getClass().getName());
+    private final Logger logger = LoggerFactory.getLogger(getClass().getName());
+
+    public MovieRepositoryImpl() {
+        this.movieList = new ArrayList<>();
+    }
 
     @Override
     public void addMovies(List<Movie> movies) {

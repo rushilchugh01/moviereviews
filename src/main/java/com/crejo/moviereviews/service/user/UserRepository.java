@@ -8,5 +8,6 @@ import java.util.Optional;
 public interface UserRepository {
     void addUsers(List<User> users);
     void removeUsers(List<User> users);
+    List<User> listUsers();
     Optional<User> findUser(String userName);
 }

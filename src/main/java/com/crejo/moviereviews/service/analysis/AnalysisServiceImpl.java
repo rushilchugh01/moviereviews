@@ -31,7 +31,7 @@ public class AnalysisServiceImpl implements AnalysisService {
     public Double averageReviewScoreByYear(Integer year) {
         return movieRepository.listMovies().stream().filter(movie -> movie.getReleaseYear().equals(year))
                 .map(this::sumOfReviews)
-                .mapToDouble(i -> i)
+                .mapToInt(i -> i)
                 .average().getAsDouble();
     }
 
@@ -39,11 +39,11 @@ public class AnalysisServiceImpl implements AnalysisService {
     public Double averageReviewScoreByMovie(String movieTitle) {
         return movieRepository.listMovies().stream().filter(movie -> movie.getMovieTitle().equals(movieTitle))
                 .map(this::sumOfReviews)
-                .mapToDouble(i -> i)
+                .mapToInt(i -> i)
                 .average().getAsDouble();
     }
 
     private Integer sumOfReviews(Movie movie) {
-        return movie.getReviews().stream().map(Review::getScore).mapToInt(Double::intValue).sum();
+        return movie.getReviews().stream().map(Review::getScore).mapToInt(Integer::intValue).sum();
     }
 }

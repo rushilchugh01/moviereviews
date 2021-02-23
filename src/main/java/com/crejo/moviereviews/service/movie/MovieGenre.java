@@ -3,7 +3,8 @@ package com.crejo.moviereviews.service.movie;
 public enum MovieGenre {
     COMEDY("Comedy"),
     DRAMA("Drama"),
-    ROMANCE("Romance");
+    ROMANCE("Romance"),
+    ACTION("Action");
 
     private final String genre;
 

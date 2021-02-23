@@ -11,6 +11,7 @@ public class ValidationPredicates {
     public static final BiPredicate<Movie, User> multipleReviewPredicate = (movie, user) ->
             movie.getReviews().stream().anyMatch(review -> review.getUser().getName().equals(user.getName()));
 
-    public static final Predicate<Movie> unreleasedMoviePredicate = movie -> LocalDateTime.now().getYear() >= movie.getReleaseYear();
+    public static final Predicate<Movie> unreleasedMoviePredicate = movie ->
+            LocalDateTime.now().getYear() < movie.getReleaseYear();
 
 }
