@@ -11,7 +11,7 @@ import java.util.Map;
 public class ReviewAdditionObserverImpl implements ReviewAdditionObserver {
 
     private Map<User, Integer> userReviewsMap;
-    private Integer criticalNumberVal;
+    private final Integer criticalNumberVal;
 
     public ReviewAdditionObserverImpl(
             @Value("${user.reviews.number.critic:3}") Integer criticalNumberVal) {
